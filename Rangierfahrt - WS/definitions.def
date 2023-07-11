@@ -1,0 +1,50 @@
+DEFINITIONS
+   front_of_object(obj,frnt) == //obj |-> frnt : ENV_occ & !nxt.(frnt|->nxt : ENV_next => obj |-> nxt /: ENV_occ) & 
+      obj : dom(ENV_object_front) & frnt : dom(ENV_object_front(obj)); // first part WD-POs
+   back_of_object(obj,back) == //obj |-> back : ENV_occ & !prv.(prv|->back : ENV_next => obj |-> prv /: ENV_occ) & 
+      obj : dom(ENV_object_back) & back : dom(ENV_object_back(obj)); // first part for WD-POs
+   front_of_track(frnt) == frnt /: dom(ENV_next);
+   back_of_track(back) == back /: ran(ENV_next);
+   position_in_new_block_forwards(curr_block,pos_in_curr,dist,dist_block) == 
+      dist
+      - (ENV_block_length(curr_block)-pos_in_curr)
+      - SIGMA(l,b).(curr_block |-> b : closure1(ENV_next) & b |-> dist_block : closure1(ENV_next) & l=ENV_block_length(b) | l)
+      + IF curr_block = dist_block THEN ENV_block_length(curr_block) ELSE 0 END;
+   position_in_new_block_backwards(curr_block,pos_in_curr,dist,dist_block) ==
+      IF curr_block = dist_block THEN 0 ELSE ENV_block_length(dist_block) END
+      - (dist
+         - pos_in_curr
+         - SIGMA(l,b).(curr_block |-> b : closure1(ENV_next~) & b |-> dist_block : closure1(ENV_next~) & l=ENV_block_length(b) | l)
+         );
+   block_after_distance_forwards(curr_block,pos_in_curr,dist,dist_block) ==
+      ((ENV_block_length(curr_block)-pos_in_curr <= dist & (curr_block |-> dist_block) : closure1(ENV_next)) or (ENV_block_length(curr_block)-pos_in_curr > dist)) 
+      & ENV_block_length(dist_block) > position_in_new_block_forwards(curr_block,pos_in_curr,dist,dist_block) 
+      & position_in_new_block_forwards(curr_block,pos_in_curr,dist,dist_block) >= 0;
+   block_after_distance_backwards(curr_block,pos_in_curr,dist,dist_block) ==
+      ((pos_in_curr < dist & (curr_block |-> dist_block) : closure1((ENV_next \/ front_point_not_ENV_next)~)) or (pos_in_curr >= dist))
+      & ENV_block_length(dist_block) > position_in_new_block_backwards(curr_block,pos_in_curr,dist,dist_block)
+      & position_in_new_block_backwards(curr_block,pos_in_curr,dist,dist_block) >= 0;
+   dist_front(frnt, B, dist_in_B) ==
+      IF frnt /= B THEN ENV_block_length(frnt) ELSE 0 END 
+      - ENV_object_front(lok)(frnt)
+      + SIGMA(l,b).(frnt |->b : closure1(ENV_TRK) & b |-> B : closure1(ENV_TRK) & l=ENV_block_length(b) | l ) 
+      + dist_in_B;
+   dist_back(back, B, dist_in_B) ==
+      IF back /= B THEN ENV_block_length(back) ELSE 0 END
+      + ENV_object_back(lok)(back)
+      + SIGMA(l,b).(back |->b : closure1(ENV_TRK~) & b |-> B : closure1(ENV_TRK~) & l=ENV_block_length(b) | l ) 
+      - dist_in_B;
+   stop_reason_passed_front(B, R) == 
+      B : ENV_BLOCKS
+      & R <: ENV_STOP_REASONS 
+      & #i.(i : ENV_stop_distances_front & prj2(ENV_BLOCKS,INTEGER)(prj1(ENV_BLOCKS*INTEGER,ENV_STOP_REASONS)(i)) <= 0 
+            & prj1(ENV_BLOCKS,INTEGER)(prj1(ENV_BLOCKS*INTEGER,ENV_STOP_REASONS)(i)) : closure(ENV_next~)[ENV_next[{B}] \/ {B}]
+            & prj2(ENV_BLOCKS*INTEGER,ENV_STOP_REASONS)(i) : R);
+   front_point_not_ENV_next == // gives Block |-> nn for all forward branching points
+      { nn | #(px1,px2,px3).((px1,(px2,px3)) : ENV_POINTS & ((ENV_point_states(px1,(px2,px3)) = Wn2 & nn = px1 |-> px2)
+                      or (ENV_point_states(px1,(px2,px3)) = Wn1 & nn = px1 |-> px3)
+                      or (ENV_next(px1) = px2 & nn = px1 |-> px3)
+                      or (ENV_next(px1) = px3 & nn = px1 |-> px2))) };
+   p11_BI_S(x) == prj1(ENV_BLOCKS,INTEGER)(prj1(ENV_BLOCKS*INTEGER,ENV_STOP_REASONS)(x));
+   p12_BI_S(x) == prj2(ENV_BLOCKS,INTEGER)(prj1(ENV_BLOCKS*INTEGER,ENV_STOP_REASONS)(x));
+   p2_BI_S(x) == prj2(ENV_BLOCKS*INTEGER,ENV_STOP_REASONS)(x)

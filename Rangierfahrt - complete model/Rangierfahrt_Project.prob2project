@@ -1,0 +1,765 @@
+{
+  "name": "Rangierfahrt_Project",
+  "description": "",
+  "machines": [
+    {
+      "name": "definitions",
+      "description": "",
+      "location": "definitions.def",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Environment",
+      "description": "",
+      "location": "Environment.mch",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Vision",
+      "description": "",
+      "location": "Vision.mch",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Control",
+      "description": "",
+      "location": "Control.mch",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Rangierfahrt",
+      "description": "",
+      "location": "Rangierfahrt.mch",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Rangierfahrt_KI",
+      "description": "",
+      "location": "Rangierfahrt_KI.ref",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [
+        {
+          "searchStrategy": "MIXED_BF_DF",
+          "options": [
+            "IGNORE_OTHER_ERRORS"
+          ],
+          "shouldExecute": true
+        },
+        {
+          "searchStrategy": "MIXED_BF_DF",
+          "options": [
+            "FIND_DEADLOCKS",
+            "FIND_INVARIANT_VIOLATIONS"
+          ],
+          "shouldExecute": true
+        }
+      ],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Rangierfahrt_KI_1_1",
+      "description": "",
+      "location": "Rangierfahrt_KI_1_1.mch",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [
+        {
+          "id": "TR1",
+          "location": "Traces Case Study 1.1/Mission_Order.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR10",
+          "location": "Traces Case Study 1.1/Mission_Order10.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR11",
+          "location": "Traces Case Study 1.1/Mission_Order11.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR12",
+          "location": "Traces Case Study 1.1/Mission_Order12.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR13",
+          "location": "Traces Case Study 1.1/Mission_Order13.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR14",
+          "location": "Traces Case Study 1.1/Mission_Order14.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR15",
+          "location": "Traces Case Study 1.1/Mission_Order15.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR2",
+          "location": "Traces Case Study 1.1/Mission_Order2.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR3",
+          "location": "Traces Case Study 1.1/Mission_Order3.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR4",
+          "location": "Traces Case Study 1.1/Mission_Order4.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR5",
+          "location": "Traces Case Study 1.1/Mission_Order5.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR6",
+          "location": "Traces Case Study 1.1/Mission_Order6.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR7",
+          "location": "Traces Case Study 1.1/Mission_Order7.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR8",
+          "location": "Traces Case Study 1.1/Mission_Order8.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR9",
+          "location": "Traces Case Study 1.1/Mission_Order9.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR16",
+          "location": "Traces Case Study 1.1/Mission_Order16.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR17",
+          "location": "Traces Case Study 1.1/Mission_Order17.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR18",
+          "location": "Traces Case Study 1.1/Mission_Order18.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR20",
+          "location": "Traces Case Study 1.1/Mission_Order20.prob2trace",
+          "selected": true
+        },
+        {
+          "id": "TR19",
+          "location": "Traces Case Study 1.1/Mission_Order19.prob2trace",
+          "selected": true
+        }
+      ],
+      "modelcheckingItems": [
+        {
+          "searchStrategy": "MIXED_BF_DF",
+          "options": [
+            "IGNORE_OTHER_ERRORS"
+          ],
+          "shouldExecute": true
+        },
+        {
+          "searchStrategy": "MIXED_BF_DF",
+          "options": [
+            "FIND_INVARIANT_VIOLATIONS",
+            "IGNORE_OTHER_ERRORS"
+          ],
+          "shouldExecute": true
+        }
+      ],
+      "proofObligationItems": [],
+      "simulations": [
+        {
+          "path": "Mission_Order_Simulation.json",
+          "simulationItems": [
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "ENV_safety_critical = FALSE",
+                "STEPS_PER_EXECUTION": 100,
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_INVARIANT"
+              }
+            },
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 100000,
+                "PREDICATE": "ENV_safety_critical = FALSE",
+                "STEPS_PER_EXECUTION": 100,
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_INVARIANT"
+              }
+            },
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "SIGNIFICANCE": 0.001,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "ENV_stop_positions_front~[{human}](B855b) < 10",
+                "STEPS_PER_EXECUTION": 100,
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_EVENTUALLY"
+              }
+            }
+          ]
+        },
+        {
+          "path": "Mission_Order_Simulation_bad.json",
+          "simulationItems": [
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "ENV_safety_critical = FALSE",
+                "STEPS_PER_EXECUTION": 100,
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_INVARIANT"
+              }
+            },
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 100000,
+                "PREDICATE": "ENV_safety_critical = FALSE",
+                "STEPS_PER_EXECUTION": 100,
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_INVARIANT"
+              }
+            }
+          ]
+        },
+        {
+          "path": "Mission_Order_Simulation_refined.json",
+          "simulationItems": [
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "ENDING_PREDICATE": "B855b |-> 76 : ENV_object_front(lok) or B347c |-> 99 : ENV_object_front(lok) or ENV_safety_critical = TRUE",
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "ENV_safety_critical = FALSE",
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_INVARIANT"
+              }
+            },
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "ENDING_PREDICATE": "B855b |-> 76 : ENV_object_front(lok) or B347c |-> 99 : ENV_object_front(lok) or ENV_safety_critical = TRUE",
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 100000,
+                "PREDICATE": "ENV_safety_critical = FALSE",
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_INVARIANT"
+              }
+            },
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "ENDING_PREDICATE": "B855b |-> 76 : ENV_object_front(lok) or B347c |-> 99 : ENV_object_front(lok) or ENV_safety_critical = TRUE",
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "B855b |-> 76 : ENV_object_front(lok) & ENV_safety_critical = FALSE",
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_FINAL"
+              }
+            },
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "ENDING_PREDICATE": "B855b |-> 76 : ENV_object_front(lok) or B347c |-> 99 : ENV_object_front(lok) or ENV_safety_critical = TRUE",
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 100000,
+                "PREDICATE": "B855b |-> 76 : ENV_object_front(lok) & ENV_safety_critical = FALSE",
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_FINAL"
+              }
+            }
+          ]
+        },
+        {
+          "path": "timed_traces",
+          "simulationItems": [
+            {
+              "id": null,
+              "type": "HYPOTHESIS_TEST",
+              "information": {
+                "SIGNIFICANCE": 0.01,
+                "PROBABILITY": 0.999,
+                "MAX_STEPS_BEFORE_PROPERTY": 0,
+                "EXECUTIONS": 10000,
+                "PREDICATE": "ENV_safety_critical = FALSE",
+                "STEPS_PER_EXECUTION": 100,
+                "HYPOTHESIS_CHECKING_TYPE": "LEFT_TAILED",
+                "CHECKING_TYPE": "PREDICATE_INVARIANT"
+              }
+            }
+          ]
+        }
+      ],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {
+        "machine_hierarchy": []
+      },
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Rangierfahrt_KI_1_2a",
+      "description": "",
+      "location": "Rangierfahrt_KI_1_2a.mch",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Rangierfahrt_KI_1_2b",
+      "description": "",
+      "location": "Rangierfahrt_KI_1_2b.mch",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [
+        {
+          "id": null,
+          "location": "Traces Case Study 1.2/1_2b_Collision1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": null,
+          "location": "Traces Case Study 1.2/1_2b_Mission_Order1.prob2trace",
+          "selected": true
+        },
+        {
+          "id": null,
+          "location": "Traces Case Study 1.2/1_2b_Mission_Order2.prob2trace",
+          "selected": true
+        },
+        {
+          "id": null,
+          "location": "Traces Case Study 1.2/1_2b_Mission_Order3.prob2trace",
+          "selected": true
+        }
+      ],
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    },
+    {
+      "name": "Rangierfahrt_KI_Random_Topology",
+      "description": "",
+      "location": "Rangierfahrt_KI_Random_Topology.mch",
+      "lastUsedPreferenceName": "default",
+      "temporalFormulas": [],
+      "ltlPatterns": [],
+      "symbolicCheckingFormulas": [],
+      "symbolicAnimationFormulas": [],
+      "testCases": [],
+      "traces": [],
+      "modelcheckingItems": [],
+      "proofObligationItems": [],
+      "simulations": [],
+      "visBVisualisation": null,
+      "historyChartItems": [],
+      "dotVisualizationItems": {},
+      "tableVisualizationItems": {}
+    }
+  ],
+  "requirements": [
+    {
+      "name": "Mission Order",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Erkenne die Feldelemente und Personen. \n\nAufgabe für das System: Erkenne sicher die beschriebenen Feldelemente und gegebenenfalls den Signalaspekt.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR1"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Collision with Person)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Erkenne die Feldelemente, allerdings nicht die Person. Dies führt zur Kollision mit der Person\n\nAufgabe für das System: Erkenne sicher die beschriebenen Feldelemente und gegebenenfalls den Signalaspekt.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR2"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Collision with Person and Wagon)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Erkenne die Feldelemente außer dem Waggon. Erkenne nicht die Person. Dies führt zur Kollision mit der Person und dem Waggon",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR3"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Stop at Person)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Erkenne die Feldelemente außer den Wagon. Erkenne  die Person. Somit hält der Zug vor der Person.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR4"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Ignore Non-Active Derailer)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Erkenne das Signal sowie die Position der Weiche.  Die Gleissperre ist nicht aktiv. Übersehe jedoch ihren Status. Der Zug kann dann weiterhin rechtmäßig den Abschnitt mit der Gleissperre überfahren.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR5"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Ignore Active Derailer)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Erkenne das Signal sowie die Position der Weiche.  Die Gleissperre ist aktiv. Übersehe jedoch ihren Status. Der Zug betritt dann  den Abschnitt mit der Gleissperre unrechtmäßig.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR6"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Recognize Active Derailer)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Erkenne das Signal sowie die Position der Weiche.  Die Gleissperre ist aktiv und wird erkannt. Der Zug hält vor der Gleissperre.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR7"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Ignore Point Position; Point Position to Right)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist grün, die Weiche ist nach rechts verstellt. Erkenne das Signal, allerdings nicht die Weiche. Der Zug fährt nach rechts.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR8"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Wrong Recognition of Point Position)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist grün, die Weiche ist nach links verstellt. Erkenne das Signal korrekt. Erkenne die Position der Weiche falsch. Zug fährt geradeaus.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR9"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Detection of Wrong Point Position)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist grün, die Weiche ist nach links verstellt. Erkenne das Signal korrekt. Erkenne die Position der Weiche. Zug hält vor der Weiche an.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR10"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Ignore Point Position; Point Position to Left)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist grün, die Weiche ist nach links verstellt. Erkenne das Signal, allerdings nicht die Weiche. Der Zugf fährt geradeaus.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR11"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Recognize Signal; Signal Red; Point Positioned)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist rot, die Weiche ist nach rechts verstellt. Erkenne das Signal. Der Zug hält vor dem Sperrsignal",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR12"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Ignore Signal; Signal Red; Point Positioned)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist rot, die Weiche ist nach rechts verstellt. Erkenne das Signal nicht. Der Zug entgleist.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR13"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Wrong Detection of Signal; Signal Red; Point Positioned)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist rot, die Weiche ist nach rechts verstellt. Erkenne das Signal falsch. Der Zug entgleist.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR14"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Ignore Signal; Signal Green; Point Positioned)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": null,
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist grün, die Weiche ist nach rechts verstellt. Erkenne das Signal nicht. Der Zug fährt nach rechts.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR15"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Wrong Detection of Signal; Signal Green; Point Positioned)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist grün, die Weiche ist nach rechts verstellt. Erkenne das Signal falsch. Der Zug hält vor dem Signal an.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR16"
+        }
+      ]
+    },
+    {
+      "name": "Misision Order (Recognize Signal; Signal Red; Point Positioning Moving)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist rot, die Weiche ist am Bewegen. Erkenne das Signal korrekt. Der Zug hält vor dem Signal an.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR17"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Ignore Signal; Signal Red, Point Positioning Moving)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist rot, die Weiche ist am Bewegen. Ignore das Signal. Der Zug fährt über die bewegende Weiche und entgleist.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR18"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Wrong Detection of Signal; Signal Red; Point Positioning Moving)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Das Signal ist rot, die Weiche ist am Bewegen. Erkenne das Signal falsch. Der Zug fährt über die bewegende Weiche und entgleist.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR19"
+        }
+      ]
+    },
+    {
+      "name": "Mission Order (Signal Red and cannot be changed when Point Positioning is Moving)",
+      "introducedAt": "Rangierfahrt_KI_1_1",
+      "type": "FUNCTIONAL",
+      "text": "Auf einem Rangierbahnhof ist für die KI-LOK 1 folgender Auftrag definiert worden (Mission Order):\n\nFahre von der aktuellen Position auf Gleis 347 zu Position B auf dem Gleis 855. Position B ist definiert als Position von Wagen C55 (QR-Code). Nähere dich dem Wagen bis zur Kupplungsposition. Die Weiche ist am Bewegen.  Signal is red and cannot be changed.",
+      "validationObligations": [
+        {
+          "machine": "Rangierfahrt_KI_1_1",
+          "expression": "TR20"
+        }
+      ]
+    }
+  ],
+  "preferences": [],
+  "metadata": {
+    "fileType": "Project",
+    "formatVersion": 37,
+    "savedAt": "2023-05-08T07:21:31.499254Z",
+    "creator": "User",
+    "proB2KernelVersion": "4.12.1",
+    "proBCliVersion": null,
+    "modelName": null
+  }
+}

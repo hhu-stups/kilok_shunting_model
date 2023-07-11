@@ -1,0 +1,452 @@
+{
+  "svg":"grafik_rangierfahrt.svg",
+  "definitions":[
+    { "name":"nr_boxes",
+      "value":"{B347a |-> 20, B347b |-> 25, B347c |-> 25, B855a |-> 34, B855b |-> 25}"
+    }
+  ],
+  "items":[
+    {
+	  "repeat": ["B347a", "B347c", "B855b"],
+      "id":"%0",
+      "attr":"style",
+      "value":"IF lok |-> %0 : ENV_occ THEN \"fill:red;stroke:black;stroke-width:0.265\" ELSE \"fill:#20ff00;stroke:black;stroke-width:0.265\" END",
+      "comment":"show blocks of train position"
+    },
+    {
+    "repeat":["Wn1","Wn2"],
+      "id":"B347b-%0",
+      "attr":"style",
+      "value":"IF lok |-> B347b : ENV_occ THEN \"fill:red;stroke:black;stroke-width:0.265\" ELSE \"fill:#20ff00;stroke:black;stroke-width:0.265\" END",
+      "comment":"show block 347b position (separated for switch position)"
+    },
+    {
+    "repeat":["Wn1","Wn2"],
+      "id":"B855a-%0",
+      "attr":"style",
+      "value":"IF lok |-> B855a : ENV_occ THEN \"fill:red;stroke:black;stroke-width:0.265\" ELSE \"fill:#20ff00;stroke:black;stroke-width:0.265\" END",
+      "comment":"show block 855a position (separated for switch position)"
+    },
+    {
+    "repeat": ["B347a", "B347b", "B347c", "B855a", "B855b"],
+      "id":"%0-t",
+      "attr":"style",
+      "value":"IF lok |-> %0 : ENV_occ THEN \"font-size:3.4px;font-family:sans-serif;fill:white\" ELSE \"font-size:3.4px;font-family:sans-serif;fill:black\" END",
+      "comment":"show blocks of train position"
+    },
+    {
+    "repeat": ["HP0-Sh0-1", "HP0-Sh0-2"],
+      "id":"%0",
+      "attr":"style",
+      "value":"IF ENV_signal_states(B347a |-> B347b)=Sh0 & ENV_signal_states(B347a |-> B855a)=Sh0 THEN \"fill:red\" ELSE \"fill:#565656\" END",
+      "comment":"show HP0-Sh0"
+    },
+    {
+    "repeat": ["HP0-Sh1-1", "HP0-Sh1-2"],
+      "id":"%0",
+      "attr":"style",
+      "value":"IF ENV_signal_states(B347a |-> B347b)=Sh1 or ENV_signal_states(B347a |-> B855a)=Sh1 THEN \"fill:white\" ELSE \"fill:#565656\" END",
+      "comment":"show HP0-Sh1"
+    },
+    {
+      "id":"GS-347",
+      "attr":"style",
+      "value":"IF B347b |-> B347c : ENV_active_derailers THEN \"fill:#fff100;stroke:#000000;stroke-width:0.265\" ELSE \"fill:#d8d8d5;stroke:#000000;stroke-width:0.265\" END",
+      "comment":"show active derailer on track 347"
+    },
+    {
+      "id":"GS-855",
+      "attr":"style",
+      "value":"IF B855a |-> B855b : ENV_active_derailers THEN \"fill:#fff100;stroke:#000000;stroke-width:0.265\" ELSE \"fill:#d8d8d5;stroke:#000000;stroke-width:0.265\" END",
+      "comment":"show active derailer on track 855"
+    },
+    {
+    "repeat": ["Sh0-GS347-1", "Sh0-GS347-2"],
+      "id":"%0",
+      "attr":"visibility",
+      "value":"IF ENV_signal_states(B347b |-> B347c)=Sh0 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show Sh0 if derailer on track 347 is active"
+    },
+    {
+    "repeat": ["Wn7-GS347-1", "Wn7-GS347-2"],
+      "id":"%0",
+      "attr":"visibility",
+      "value":"IF ENV_signal_states(B347b |-> B347c)=Wn7 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show Wn7 if derailer on track 347 is inactive"
+    },
+    {
+    "repeat": ["Sh0-GS855-1", "Sh0-GS855-2"],
+      "id":"%0",
+      "attr":"visibility",
+      "value":"IF ENV_signal_states(B855a |-> B855b)=Sh0 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show Sh0 if derailer on track 855 is active"
+    },
+    {
+    "repeat": ["Wn7-GS855-1", "Wn7-GS855-2"],
+      "id":"%0",
+      "attr":"visibility",
+      "value":"IF ENV_signal_states(B855a |-> B855b)=Wn7 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show Wn7 if derailer on track 855 is inactive"
+    },
+    {
+    "repeat":["Sh0","Sh1"],
+      "id":"HP0-%0-detect",
+      "attr":"visibility",
+      "value":"IF ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Front(B347a,B347b)\") = TRUE or ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Front(B347a,B855a)\") = TRUE or (B347a |-> B347b : dom(VIS_detected_sig_front) & VIS_detected_sig_front(B347a |-> B347b) = %0 & (ENV_signal_states(B347a |-> B347b) = %0 or (VIS_detected_track /<: ENV_next & ENV_signal_states(B347a |-> B855a) = %0))) or (B347a |-> B855a : dom(VIS_detected_sig_front) & VIS_detected_sig_front(B347a |-> B855a) = %0 & (ENV_signal_states(B347a |-> B855a) = %0 or (VIS_detected_track /<: ENV_next & ENV_signal_states(B347a |-> B347b) = %0))) THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show when Sh0/Sh1 for Hp0 can be/was detected forwards"
+    },
+    {
+    "repeat":["Sh0","Sh1"],
+      "id":"HP0-%0-detect",
+      "attr":"style",
+      "value":"IF (B347a |-> B347b : VIS_detected_track & B347a |-> B347b : dom(VIS_detected_sig_front) & VIS_detected_sig_front(B347a |-> B347b) = %0 & (ENV_signal_states(B347a |-> B347b) = %0 or (VIS_detected_track /<: ENV_next & ENV_signal_states(B347a |-> B855a) = %0))) or (B347a |-> B855a : VIS_detected_track & B347a |-> B855a : dom(VIS_detected_sig_front) & VIS_detected_sig_front(B347a |-> B855a) = %0 & (ENV_signal_states(B347a |-> B855a) = %0 or (VIS_detected_track /<: ENV_next & ENV_signal_states(B347a |-> B347b) = %0))) THEN \"stroke:#009f00;stroke-width:1.675\" ELSE \"stroke:#006aff;stroke-width:1.675\" END",
+      "comment":"show if Sh0/Sh1 for Hp0 was detected forwards or not"
+    },
+    {
+      "id":"W2-gerade",
+      "attr":"style",
+      "value":"IF ENV_point_states(B347a |-> (B347b,B855a)) = Wn1 THEN \"fill:white\" ELSE \"fill:#565656\" END",
+      "comment":"show switch position"
+    },
+    {
+      "id":"B347b-Wn1",
+      "attr":"visibility",
+      "value":"IF ENV_point_states(B347a |-> (B347b,B855a)) = Wn1 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show switch position"
+    },
+    {
+      "id":"B347b-Wn2",
+      "attr":"visibility",
+      "value":"IF ENV_point_states(B347a |-> (B347b,B855a)) /= Wn1 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show switch position"
+    },
+    {
+      "id":"B347b-undef",
+      "attr":"visibility",
+      "value":"IF ENV_point_states(B347a |-> (B347b,B855a)) = undef THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show switch position"
+    },
+    {
+      "id":"B855a-Wn1",
+      "attr":"visibility",
+      "value":"IF ENV_point_states(B347a |-> (B347b,B855a)) /= Wn2 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show switch position"
+    },
+    {
+      "id":"B855a-Wn2",
+      "attr":"visibility",
+      "value":"IF ENV_point_states(B347a |-> (B347b,B855a)) = Wn2 THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show switch position"
+    },
+    {
+      "id":"W2-abzweig",
+      "attr":"style",
+      "value":"IF ENV_point_states(B347a |-> (B347b,B855a)) = Wn2 THEN \"fill:white\" ELSE \"fill:#565656\" END",
+      "comment":"show switch position"
+    },
+    {
+      "id":"W2-an",
+      "attr":"style",
+      "value":"IF ENV_point_states(B347a |-> (B347b,B855a)) = undef THEN \"fill:#565656\" ELSE \"fill:white\" END",
+      "comment":"show switch position"
+    },
+    {
+    "repeat":["Wn1","Wn2","undef"],
+      "id":"W2-%0-detect",
+      "attr":"visibility",
+      "value":"IF (ENABLED(\"VIS_DetectCorrectPointPosition_Front\") = TRUE or (B347a |-> (B347b,B855a) : dom(VIS_detected_points_front) & VIS_detected_points_front(B347a |-> (B347b,B855a)) = %0 & ENV_point_states(B347a |-> (B347b,B855a)) = %0)) & front_of_object(lok,B347a) THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show when Wn1/Wn2/undef for W2 can be/was detected forwards"
+    },
+    {
+    "repeat":["Wn1","Wn2","undef"],
+      "id":"W2-%0-detect",
+      "attr":"style",
+      "value":"IF B347a |-> (B347b,B855a) : dom(VIS_detected_points_front) & VIS_detected_points_front(B347a |-> (B347b,B855a)) = %0 & ENV_point_states(B347a |-> (B347b,B855a)) = %0 THEN \"stroke:#009f00;stroke-width:0.98\" ELSE \"stroke:#006aff;stroke-width:0.98\" END",
+      "comment":"show if Wn1/Wn2/undef for W2 was detected forwards or not"
+    },
+    {
+    "repeat":["Sh0","Wn7"],
+      "id":"GS347-%0-detect2",
+      "attr":"visibility",
+      "value":"IF ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Front(B347b,B347c)\") = TRUE or (B347b |-> B347c : dom(VIS_detected_sig_front) & VIS_detected_sig_front(B347b |-> B347c) = %0 & ENV_signal_states(B347b |-> B347c) = %0) THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show when Sh0 for GS-347 can be detected forwards"
+    },
+    {
+    "repeat":["Sh0","Wn7"],
+      "id":"GS347-%0-detect2",
+      "attr":"style",
+      "value":"IF B347b |-> B347c : dom(VIS_detected_sig_front) & VIS_detected_sig_front(B347b |-> B347c) = %0 & ENV_signal_states(B347b |-> B347c) = %0 THEN \"stroke:#009f00;stroke-width:1.075\" ELSE \"stroke:#006aff;stroke-width:1.075\" END",
+      "comment":"show if Sh0/Wn7 for GS-347 was detected forwards or not"
+    },
+    {
+    "repeat":["Sh0","Wn7"],
+      "id":"GS347-%0-detect1",
+      "attr":"visibility",
+      "value":"IF ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Back(B347b,B347c)\") = TRUE or (B347c |-> B347b : dom(VIS_detected_sig_back) & VIS_detected_sig_back(B347c |-> B347b) = %0 & ENV_signal_states(B347c |-> B347b) = %0) THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show when Sh0 for GS-347 can be detected backwards"
+    },
+    {
+    "repeat":["Sh0","Wn7"],
+      "id":"GS347-%0-detect1",
+      "attr":"style",
+      "value":"IF B347c |-> B347b : dom(VIS_detected_sig_back) & VIS_detected_sig_back(B347c |-> B347b) = %0 & ENV_signal_states(B347c |-> B347b) = %0 THEN \"stroke:#009f00;stroke-width:1.075\" ELSE \"stroke:#006aff;stroke-width:1.075\" END",
+      "comment":"show if Sh0/Wn7 for GS-347 was detected backwards or not"
+    },
+    {
+    "repeat":["Sh0","Wn7"],
+      "id":"GS855-%0-detect2",
+      "attr":"visibility",
+      "value":"IF ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Front(B855a,B855b)\") = TRUE or (B855a |-> B855b : dom(VIS_detected_sig_front) & VIS_detected_sig_front(B855a |-> B855b) = %0 & ENV_signal_states(B855a |-> B855b) = %0) THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show when Sh0/Wn7 for GS-855 can be detected forwards"
+    },
+    {
+    "repeat":["Sh0","Wn7"],
+      "id":"GS855-%0-detect2",
+      "attr":"style",
+      "value":"IF B855a |-> B855b : dom(VIS_detected_sig_front) & VIS_detected_sig_front(B855a |-> B855b) = %0 & ENV_signal_states(B855a |-> B855b) = %0 THEN \"stroke:#009f00;stroke-width:1.075\" ELSE \"stroke:#006aff;stroke-width:1.075\" END",
+      "comment":"show if Sh0/Wn7 for GS-855 was detected forwards or not"
+    },
+    {
+    "repeat":["Sh0","Wn7"],
+      "id":"GS855-%0-detect1",
+      "attr":"visibility",
+      "value":"IF ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Back(B855a,B855b)\") = TRUE or (B855b |-> B855a : dom(VIS_detected_sig_back) & VIS_detected_sig_back(B855b |-> B855a) = %0 & ENV_signal_states(B855b |-> B855a) = %0) THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"show when Sh0/Wn7 for GS-855 can be detected backwards"
+    },
+    {
+    "repeat":["Sh0","Wn7"],
+      "id":"GS855-%0-detect1",
+      "attr":"style",
+      "value":"IF B855b |-> B855a : dom(VIS_detected_sig_back) & VIS_detected_sig_back(B855b |-> B855a) = %0 & ENV_signal_states(B855b |-> B855a) = %0 THEN \"stroke:#009f00;stroke-width:1.075\" ELSE \"stroke:#006aff;stroke-width:1.075\" END",
+      "comment":"show if Sh0/Wn7 for GS-855 was detected backwards or not"
+    },
+    {
+      "id":"GS-Box",
+      "attr":"style",
+      "value":"IF ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Front(B855a,B855b)\") = TRUE or ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Back(B855a,B855b)\") = TRUE or ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Front(B347b,B347c)\") = TRUE or ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Back(B347b,B347c)\") = TRUE THEN \"fill:#006aff;stroke:black;stroke-width:0.1\" ELSE \"fill:none;stroke:black;stroke-width:0.1\" END",
+      "comment":"show when GS can be detected"
+    },
+    {
+      "id":"GS-Text",
+      "attr":"style",
+      "value":"IF ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Front(B855a,B855b)\") = TRUE or ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Back(B855a,B855b)\") = TRUE or ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Front(B347b,B347c)\") = TRUE or ENABLED_TRANSITION(\"VIS_DetectCorrectSignal_Back(B347b,B347c)\") = TRUE THEN \"font-size:2.9px;font-family:sans-serif;fill:white\" ELSE \"font-size:2.9px;font-family:sans-serif;fill:black\" END",
+      "comment":"show when GS can be detected"
+    },
+    {
+    "for": {"from":1, "to":4},
+      "id":"pers_fig_%0",
+      "attr":"style",
+      "value":"IF Person : VIS_detected_obj_front THEN \"fill:none;stroke:#009f00;stroke-width:0.1\" ELSIF ENABLED_TRANSITION(\"VIS_DetectCorrectObject_Front(human)\") = TRUE & Person /: VIS_detected_obj_front THEN \"fill:none;stroke:#006aff;stroke-width:0.1\" ELSE \"fill:none;stroke:black;stroke-width:0.1\" END",
+      "comment":"show when Person can be detected"
+    },
+    {
+    "repeat":["347a","347b","347c","855a","855b"],
+      "for": {"from":1, "to":"nr_boxes(B%0)"},
+        "id":"%0%1",
+        "attr":"visibility",
+        "value":"IF (front_of_object(lok,B%0) & back_of_object(lok,B%0) & real(ENV_object_front(lok)(B%0))/real(ENV_block_length(B%0)) >= real(%1-1)/real(nr_boxes(B%0)) & real(ENV_object_back(lok)(B%0))/real(ENV_block_length(B%0)) < real(%1)/real(nr_boxes(B%0))) or (front_of_object(lok,B%0) & not(back_of_object(lok,B%0)) & real(ENV_object_front(lok)(B%0))/real(ENV_block_length(B%0)) >= real(%1-1)/real(nr_boxes(B%0))) or (not(front_of_object(lok,B%0)) & back_of_object(lok,B%0) & real(ENV_object_back(lok)(B%0))/real(ENV_block_length(B%0)) < real(%1)/real(nr_boxes(B%0))) THEN \"visible\" ELSE \"hidden\" END",
+        "comment":"Show train position with fixed boxes"
+    },
+    {
+    "repeat":["347a","347b","347c","855a","855b"],
+      "for": {"from":1, "to":"nr_boxes(B%0)"},
+        "id":"C%0%1",
+        "attr":"visibility",
+        "value":"IF (front_of_object(C55,B%0) & back_of_object(C55,B%0) & real(ENV_object_front(C55)(B%0))/real(ENV_block_length(B%0)) >= real(%1-1)/real(nr_boxes(B%0)) & real(ENV_object_back(C55)(B%0))/real(ENV_block_length(B%0)) < real(%1)/real(nr_boxes(B%0))) or (front_of_object(C55,B%0) & not(back_of_object(C55,B%0)) & real(ENV_object_front(C55)(B%0))/real(ENV_block_length(B%0)) >= real(%1-1)/real(nr_boxes(B%0))) or (not(front_of_object(C55,B%0)) & back_of_object(C55,B%0) & real(ENV_object_back(C55)(B%0))/real(ENV_block_length(B%0)) < real(%1)/real(nr_boxes(B%0)))  THEN \"visible\" ELSE \"hidden\" END",
+        "comment":"Show C55 position with fixed boxes"
+    },
+    {
+    "repeat":["347a","347b","347c","855a","855b"],
+      "for": {"from":1, "to":"nr_boxes(B%0)"},
+        "id":"%0%1",
+        "attr":"style",
+        "value":"IF ENV_derailed(lok) = TRUE THEN \"fill:orange\" ELSIF ENV_brakes_forced_front = TRUE THEN \"fill:#fff100\" ELSE \"fill:grey\" END",
+        "comment":"Show when lok is derailed"
+    },
+    {
+    "repeat":["347a","347b","347c","855a","855b"],
+      "for": {"from":1, "to":"nr_boxes(B%0)"},
+        "id":"C%0%1",
+        "attr":"style",
+        "value":"IF ENV_derailed(C55) = TRUE THEN \"fill:#ffd800\" ELSIF C55 : VIS_detected_obj_front THEN \"fill:#009f00\" ELSIF ENABLED_TRANSITION(\"VIS_DetectCorrectObject_Front(wagon)\") = TRUE & C55 /: VIS_detected_obj_front THEN \"fill:#006aff\" ELSE \"fill:#c6cef5\" END",
+        "comment":"Show when C55 is derailed"
+    },
+    {
+      "id":"Hinweis-safety",
+      "attr":"visibility",
+      "value":"IF ENV_safety_critical = TRUE THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"Show text if safety critical."
+    },
+    {
+      "id":"Hemmschuh-Beschriftung",
+      "attr":"visibility",
+      "value":"IF B347a : dom(ENV_brake_shoes) THEN \"visible\" ELSE \"hidden\" END",
+      "comment":"Show arrow if brake shoe is placed."
+    },
+    {
+      "id":"Hemmschuh-Beschriftung",
+      "attr":"transform",
+      "value":"IF B347a : dom(ENV_brake_shoes) THEN \"translate(-1.5875, \" ^ TO_STRING(-25.950913 + real(ENV_brake_shoes(B347a)) / real(ENV_block_length(B347a)) * 58.959) ^ \")\" ELSE \"51.5\" END",
+      "comment":"Show position of placed brake shoe."
+    },
+    {
+      "id":"Ra12-rand",
+      "attr":"style",
+      "value":"IF ((B347a,B347b), ENV_border_signs((B347a, (B347b, B855a)))) : dom(VIS_detected_border_signs_front) or ((B347a,B855a), ENV_border_signs((B347a, (B347b, B855a)))) : dom(VIS_detected_border_signs_front) THEN \"fill:none;stroke:#009f00;stroke-width:0.4\" ELSIF ENABLED_TRANSITION(\"VIS_DetectCorrectBorderSign_Front((B347a|->(B347b|->B855a)))\") = TRUE THEN \"fill:none;stroke:#006aff;stroke-width:0.4\" ELSE \"fill:none;stroke:#000000;stroke-width:0.1\" END",
+      "comment":"Show detection of border sign Ra12 at W2."
+    }
+  ],
+  "events":[
+    {
+      "id":"W2-Wn",
+      "event": "ENV_StartMovePoint"
+    },
+    {
+      "id":"W2-Wn",
+      "event":"ENV_EndMovePoint"
+    },
+    {
+      "id":"GS-347",
+      "event":"ENV_ActivateDerailer",
+      "predicates":[
+        "B1=B347b", "B2=B347c"
+      ]
+    },
+    {
+      "id":"GS-855",
+      "event":"ENV_ActivateDerailer",
+      "predicates":[
+        "B1=B855a", "B2=B855b"
+      ]
+    },
+    {
+      "id":"GS-347",
+      "comment":"was GS-347-Loesen",
+      "event":"ENV_DeactivateDerailer",
+      "predicates":[
+        "B1=B347b", "B2=B347c"
+      ]
+    },
+    {
+      "id":"GS-855",
+      "comment": "was GS-855-Loesen",
+      "event":"ENV_DeactivateDerailer",
+      "predicates":[
+        "B1=B855a", "B2=B855b"
+      ]
+    },
+    {
+      "id":"placeBrakeShoe",
+      "event":"ENV_PlaceBrakeShoe_Front",
+      "predicates":[
+        "#b.(front_of_object(lok,b) & B=b & pos=ENV_object_front(lok)(b)+10)"
+      ],
+      "items": [{"attr":"visibility","enabled":"\"visible\"", "disabled":"\"hidden\""}],
+      "hovers": [{ "id":"placeBrakeShoeBox", "attr":"stroke-width", "enter":"1.5", "leave":"0.2"}]
+    },
+    {
+      "id":"removeBrakeShoe",
+      "event":"ENV_RemoveBrakeShoe_Front",
+      "items": [{"attr":"visibility","enabled":"\"visible\"", "disabled":"\"hidden\""}],
+      "hovers": [{ "id":"removeBrakeShoeBox", "attr":"stroke-width", "enter":"1.5", "leave":"0.2"}]
+    },
+    {
+      "id":"extendFrontSlow",
+      "event":"RF_MoveLokForwards",
+      "predicates": ["dist=1"],
+      "items": [{"attr":"visibility","enabled":"\"visible\"", "disabled":"\"hidden\""}],
+      "hovers": [{ "id":"extendFrontSlowBox", "attr":"stroke-width", "enter":"1.5", "leave":"0.2"}]
+    },
+    {
+      "id":"extendFrontFast",
+      "event":"RF_MoveLokForwards",
+      "predicates": ["dist=10"],
+      "items": [{"attr":"visibility","enabled":"\"visible\"", "disabled":"\"hidden\""}],
+      "hovers": [{ "id":"extendFrontFastBox", "attr":"stroke-width", "enter":"1.5", "leave":"0.2"}]
+    },
+    {
+      "id":"extendBackSlow",
+      "event":"RF_MoveLokBackwards",
+      "predicates": ["dist=1"],
+      "items": [{"attr":"visibility","enabled":"\"visible\"", "disabled":"\"hidden\""}],
+      "hovers": [{ "id":"extendBackSlowBox", "attr":"stroke-width", "enter":"1.5", "leave":"0.2"}]
+    },
+    {
+      "id":"extendBackFast",
+      "event":"RF_MoveLokBackwards",
+      "predicates": ["dist=10"],
+      "items": [{"attr":"visibility","enabled":"\"visible\"", "disabled":"\"hidden\""}],
+      "hovers": [{ "id":"extendBackFastBox", "attr":"stroke-width", "enter":"1.5", "leave":"0.2"}]
+    },
+    {
+    "repeat":["","-Sh0-1","-Sh0-2","-Sh1-1","-Sh1-2"],
+      "id":"HP0%0",
+      "event":"ENV_SwitchSignalToSh1"
+    },
+    {
+    "repeat":["","-Sh0-1","-Sh0-2","-Sh1-1","-Sh1-2"],
+      "id":"HP0%0",
+      "event":"ENV_SwitchSignalToSh0"
+    },
+    {
+      "id":"HP0-Beschriftung",
+      "event":"VIS_DetectCorrectSignal_Front",
+      "predicates":[
+        "B1=B347a",
+        "B2=B347b or B2=B855a"
+      ],
+      "items": [{"id":"HP0-Text", "attr":"style", "enabled":"\"font-size:2.9px;font-family:sans-serif;fill:white\"", "disabled":"\"font-size:2.9px;font-family:sans-serif;fill:black\""},
+                {"id":"HP0-Box", "attr":"style", "enabled":"\"fill:#006aff;stroke:black;stroke-width:0.1\"", "disabled":"\"fill:none;stroke:black;stroke-width:0.1\""}],
+      "hovers": [{"id":"HP0-Box", "attr":"stroke-width", "enter":"1", "leave":"0.1"}]
+    },
+    {
+      "id":"W2-Beschriftung",
+      "event":"VIS_DetectCorrectPointPosition_Front",
+      "items": [{"id":"W2-Text", "attr":"style", "enabled":"\"font-size:2.9px;font-family:sans-serif;fill:white\"", "disabled":"\"font-size:2.9px;font-family:sans-serif;fill:black\""}, 
+                {"id":"W2-Box", "attr":"style", "enabled":"\"fill:#006aff;stroke:black;stroke-width:0.1\"", "disabled":"\"fill:none;stroke:black;stroke-width:0.1\""}],
+      "hovers": [{"id":"W2-Box", "attr":"stroke-width", "enter":"1", "leave":"0.1"}]
+    },
+    {
+      "id":"GS-Beschriftung",
+      "event":"VIS_DetectCorrectSignal_Front",
+      "predicates":[
+        "(B1=B347b & B2=B347c) or (B1=B855a & B2=B855b)"        
+      ],
+      "hovers": [{"id":"GS-Box", "attr":"stroke-width", "enter":"1", "leave":"0.1"}]
+    },
+    {
+      "id":"GS-Beschriftung",
+      "event":"VIS_DetectCorrectSignal_Back",
+      "predicates":[
+        "(B1=B347b & B2=B347c) or (B1=B855a & B2=B855b)"        
+      ],
+      "hovers": [{"id":"GS-Box", "attr":"stroke-width", "enter":"1", "leave":"0.1"}]
+    },
+    {
+      "id":"Hemmschuh-Beschriftung",
+      "event":"VIS_DetectCorrectObject_Front",
+      "predicates":["reason=brake_shoe"]
+    },
+    {
+      "id":"C55-Beschriftung",
+      "event":"VIS_DetectCorrectObject_Front",
+      "predicates":["reason=wagon"],
+      "items": [{"id":"C55-Text", "attr":"style", "enabled":"\"font-size:2.9px;font-family:sans-serif;fill:white\"", "disabled":"\"font-size:2.9px;font-family:sans-serif;fill:black\""},
+                {"id":"C55-Box", "attr":"style", "enabled":"\"fill:#006aff;stroke:black;stroke-width:0.1\"", "disabled":"\"fill:#c6cef5;stroke:black;stroke-width:0.1\""}],
+      "hovers": [{"id":"C55-Box", "attr":"stroke-width", "enter":"1", "leave":"0.1"}]
+    },
+    {
+      "id":"Person-Beschriftung",
+      "event":"VIS_DetectCorrectObject_Front",
+      "predicates":["reason=human"],
+      "items": [{"id":"Person-Text", "attr":"style", "enabled":"\"font-size:2.9px;font-family:sans-serif;fill:white\"", "disabled":"\"font-size:2.9px;font-family:sans-serif;fill:black\""},
+                {"id":"Person-Box", "attr":"style", "enabled":"\"fill:#006aff;stroke:black;stroke-width:0.1\"", "disabled":"\"fill:none;stroke:black;stroke-width:0.1\""}],
+      "hovers": [{"id":"Person-Box", "attr":"stroke-width", "enter":"1", "leave":"0.1"}]
+    },
+    {
+      "id":"Ra12",
+      "event":"VIS_DetectCorrectBorderSign_Front",
+      "predicates":["P=(B347a, (B347b, B855a))"]
+    }
+  ]
+}

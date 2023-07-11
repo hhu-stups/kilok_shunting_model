@@ -1,0 +1,194 @@
+{
+    "activations": [
+        {
+            "id": "$setup_constants",
+            "execute": "$setup_constants"
+        },
+        {
+            "id": "$initialise_machine",
+            "execute": "$initialise_machine",
+            "activating" : ["ENV_SwitchSignalToSh1", "ENV_ActivateDerailer", "RF_MoveLokForwards", "ENV_StartMovePoint"]
+        },
+        {
+            "id": "ENV_SwitchSignalToSh1",
+            "execute": "ENV_SwitchSignalToSh1",
+            "after": 4000,
+            "activating" : ["ENV_SwitchSignalToSh0", "VIS_DetectSignal", "VIS_DetectPointPositioning"]
+        },
+        {
+            "id": "ENV_SwitchSignalToSh1AfterEntering",
+            "execute": "ENV_SwitchSignalToSh1",
+            "after": 5000,
+            "activating" : ["ENV_SwitchSignalToSh0"]
+        },
+        {
+            "id": "ENV_SwitchSignalToSh0",
+            "chooseActivation":
+            {
+              "ENV_SwitchSignalToSh0Only": "0.0",
+              "ENV_SwitchSignalToSh0AndChangePoint": "1.0"
+            }
+        },
+        {
+            "id": "ENV_SwitchSignalToSh0AndChangePoint",
+            "execute": "ENV_SwitchSignalToSh0",
+            "after": 4000,
+            "activating" : ["ENV_SwitchSignalToSh1", "ENV_StartMovePoint"]
+        },
+        {
+            "id": "ENV_SwitchSignalToSh0Only",
+            "execute": "ENV_SwitchSignalToSh0",
+            "after": 4000,
+            "activating" : "ENV_SwitchSignalToSh1"
+        },
+        {
+            "id": "ENV_StartMovePoint",
+            "execute": "ENV_StartMovePoint",
+            "after": 500,
+            "activating" : "ENV_EndMovePoint"
+        },
+        {
+            "id": "ENV_EndMovePoint",
+            "execute": "ENV_EndMovePoint",
+            "after": 100
+        },
+        {
+            "id": "ENV_ActivateDerailer",
+            "execute": "ENV_ActivateDerailer",
+            "after": 5000,
+            "fixedVariables": {
+              "B1": "B855a",
+              "B2": "B855b"
+            },
+            "activating" : ["ENV_DeactivateDerailer", "VIS_DetectDerailer"]
+        },
+        {
+            "id": "ENV_DeactivateDerailer",
+            "execute": "ENV_DeactivateDerailer",
+            "after": 5000,
+            "fixedVariables": {
+              "B1": "B855a",
+              "B2": "B855b"
+            },
+            "activating" : ["ENV_ActivateDerailer", "VIS_DetectDerailer"]
+        },
+        {
+            "id": "RF_MoveLokForwards",
+            "execute": "RF_MoveLokForwards",
+            "fixedVariables": {
+              "dist": "10"
+            },
+            "after": 1000,
+            "activationKind": "single:max",
+            "activating" : ["RF_MoveLokForwards", "ENV_SwitchSignalToSh1AfterEntering", "VIS_DetectSignal",
+                            "VIS_DetectPointPositioning", "VIS_DetectDerailer", "VIS_DetectPerson", "VIS_DetectC55"]
+        },
+        {
+            "id": "VIS_DetectSignal",
+            "chooseActivation":
+            {
+              "VIS_DetectCorrectSignal_Front": "0.999",
+              "VIS_DetectWrongSignal_Front": "0.00099",
+              "skip": "0.00001"
+            }
+        },
+        {
+            "id": "VIS_DetectCorrectSignal_Front",
+            "execute": "VIS_DetectCorrectSignal_Front",
+            "after": 100,
+            "fixedVariables": {
+              "B1": "B347a"
+            },
+            "activating": "RF_MoveLokForwards"
+        },
+        {
+            "id": "VIS_DetectWrongSignal_Front",
+            "execute": "VIS_DetectWrongSignal_Front",
+            "after": 100,
+            "fixedVariables": {
+              "B": "B347a"
+            },
+            "activating": "RF_MoveLokForwards"
+        },
+        {
+            "id": "VIS_DetectPointPositioning",
+            "chooseActivation":
+            {
+              "VIS_DetectCorrectPointPosition_Front": "0.999",
+              "VIS_DetectWrongPointPosition_Front": "0.00099",
+              "skip": "0.00001"
+            }
+        },
+        {
+            "id": "VIS_DetectCorrectPointPosition_Front",
+            "execute": "VIS_DetectCorrectPointPosition_Front",
+            "after": 100
+        },
+        {
+            "id": "VIS_DetectDerailer",
+            "chooseActivation":
+            {
+              "VIS_DetectCorrectDerailer_Front": "0.999",
+              "VIS_DetectWrongDerailer_Front": "0.00099",
+              "skip": "0.00001"
+            }
+        },
+        {
+            "id": "VIS_DetectCorrectDerailer_Front",
+            "execute": "VIS_DetectCorrectSignal_Front",
+            "after": 100,
+            "fixedVariables": {
+              "B1": "B855a"
+            },
+            "activating": "RF_MoveLokForwards"
+        },
+        {
+            "id": "VIS_DetectWrongDerailer_Front",
+            "execute": "VIS_DetectWrongSignal_Front",
+            "after": 100,
+            "fixedVariables": {
+              "B": "B347a"
+            },
+            "activating": "RF_MoveLokForwards"
+        },
+        {
+            "id": "VIS_DetectPerson",
+            "chooseActivation":
+            {
+              "VIS_DetectCorrectPerson": "0.999",
+              "skip": "0.001"
+            }
+        },
+        {
+            "id": "VIS_DetectCorrectPerson",
+            "execute": "VIS_DetectCorrectObject_Front",
+            "fixedVariables": {
+              "reason": "human"
+            },
+            "after": 100,
+            "activating": "RF_MoveLokForwards"
+        },
+        {
+            "id": "VIS_DetectC55",
+            "chooseActivation":
+            {
+              "VIS_DetectCorrectC55": "0.999",
+              "skip": "0.001"
+            }
+        },
+        {
+            "id": "VIS_DetectCorrectC55",
+            "execute": "VIS_DetectCorrectObject_Front",
+            "fixedVariables": {
+              "reason": "wagon"
+            },
+            "after": 100,
+            "activating": "RF_MoveLokForwards"
+        },
+        {
+            "id": "skip",
+            "execute": "$setup_constants",
+            "after": 0
+        }
+    ]
+}

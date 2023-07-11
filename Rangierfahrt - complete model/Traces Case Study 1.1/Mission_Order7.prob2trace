@@ -1,0 +1,2340 @@
+{
+  "description": "",
+  "transitionList": [
+    {
+      "name": "$setup_constants",
+      "params": {},
+      "results": {},
+      "destState": {
+        "ENV_object_back_init": "{(lok↦{(B347a↦0)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_DERAILERS": "{(B347b↦B347c),(B855a↦B855b)}",
+        "ENV_object_type": "{(C55↦wagon),(Person↦human)}",
+        "ENV_stop_distances_front_init": "{(B347b↦70↦signal_without_train_protect)}",
+        "ENV_stop_distances_back_init": "∅",
+        "ENV_occ_init": "{(lok↦B347a),(C55↦B855b),(Person↦B855b)}",
+        "ENV_SIGNALS": "{(B347a↦B347b),(B347a↦B855a),(B347b↦B347c),(B347c↦B347b),(B855a↦B855b),(B855b↦B855a)}",
+        "ENV_object_front_init": "{(lok↦{(B347a↦30)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "ENV_TRK": "{(B347a↦B347b),(B347a↦B855a),(B347b↦B347c),(B855a↦B855b)}",
+        "ENV_stop_positions_front_init": "{(B347b↦0↦signal_without_train_protect),(B855a↦0↦signal_without_train_protect),(B855b↦77↦human),(B855b↦79↦wagon)}",
+        "ENV_signals_init": "{(B347a↦B347b↦Sh0),(B347a↦B855a↦Sh0),(B347b↦B347c↦Wn7),(B347c↦B347b↦Wn7),(B855a↦B855b↦Wn7),(B855b↦B855a↦Wn7)}",
+        "ENV_stop_positions_back_init": "∅",
+        "ENV_next_init": "{(B347a↦B347b),(B347b↦B347c),(B855a↦B855b)}",
+        "ENV_points_init": "{(B347a↦(B347b↦B855a)↦Wn1)}",
+        "ENV_POINTS": "{(B347a↦(B347b↦B855a))}",
+        "ENV_object_length": "{(lok↦30),(C55↦20),(Person↦1)}",
+        "VIS_max_detect_dist": "200",
+        "ENV_block_length": "{(B347a↦100),(B347b↦100),(B347c↦100),(B855a↦100),(B855b↦100)}"
+      },
+      "destStateNotChanged": [],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "$initialise_machine",
+      "params": {},
+      "results": {},
+      "destState": {
+        "ENV_next": "{(B347a↦B347b),(B347b↦B347c),(B855a↦B855b)}",
+        "CTR_allow_forw": "200",
+        "ENV_stop_distances_front": "{(B347b↦70↦signal_without_train_protect)}",
+        "ENV_occ": "{(lok↦B347a),(C55↦B855b),(Person↦B855b)}",
+        "ENV_signal_states": "{(B347a↦B347b↦Sh0),(B347a↦B855a↦Sh0),(B347b↦B347c↦Wn7),(B347c↦B347b↦Wn7),(B855a↦B855b↦Wn7),(B855b↦B855a↦Wn7)}",
+        "VIS_detected_stops_front": "∅",
+        "ENV_safety_critical": "FALSE",
+        "ENV_stop_positions_front": "{(B347b↦0↦signal_without_train_protect),(B855a↦0↦signal_without_train_protect),(B855b↦77↦human),(B855b↦79↦wagon)}",
+        "ENV_brakes_forced_front": "FALSE",
+        "ENV_brake_shoes": "∅",
+        "VIS_detected_sig_front": "∅",
+        "ENV_brakes_forced_back": "FALSE",
+        "VIS_detected_stops_back": "∅",
+        "CTR_allow_back": "200",
+        "ENV_stop_distances_back": "∅",
+        "ENV_active_derailers": "∅",
+        "ENV_derailed": "{(lok↦FALSE),(C55↦FALSE),(Person↦FALSE)}",
+        "VIS_detected_points_front": "∅",
+        "ENV_object_back": "{(lok↦{(B347a↦0)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_positions_back": "∅",
+        "VIS_detected_obj_front": "∅",
+        "ENV_object_front": "{(lok↦{(B347a↦30)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "VIS_detected_sig_back": "∅",
+        "ENV_point_states": "{(B347a↦(B347b↦B855a)↦Wn1)}"
+      },
+      "destStateNotChanged": [],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B347a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B347a",
+        "dist": "10",
+        "nxt": "B347b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦10)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B347b↦60↦signal_without_train_protect)}",
+        "ENV_object_front": "{(lok↦{(B347a↦40)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Zug fährt in Richtung Sperrsignal und Weiche."
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B347a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B347a",
+        "dist": "10",
+        "nxt": "B347b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦20)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B347b↦50↦signal_without_train_protect)}",
+        "ENV_object_front": "{(lok↦{(B347a↦50)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B347a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B347a",
+        "dist": "10",
+        "nxt": "B347b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦30)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B347b↦40↦signal_without_train_protect)}",
+        "ENV_object_front": "{(lok↦{(B347a↦60)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "ENV_StartMovePoint",
+      "params": {
+        "Block": "B347a",
+        "N1": "B347b",
+        "N2": "B855a"
+      },
+      "results": {},
+      "destState": {
+        "ENV_stop_distances_front": "{(B347b↦40↦signal_without_train_protect),(B347b↦40↦undef_point)}",
+        "ENV_stop_positions_front": "{(B347b↦0↦signal_without_train_protect),(B347b↦0↦undef_point),(B855a↦0↦signal_without_train_protect),(B855a↦0↦undef_point),(B855b↦77↦human),(B855b↦79↦wagon)}",
+        "ENV_stop_positions_back": "{(B347a↦99↦undef_point)}",
+        "ENV_point_states": "{(B347a↦(B347b↦B855a)↦undef)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_object_back",
+        "ENV_safety_critical",
+        "ENV_brakes_forced_front",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "ENV_object_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Weiche beginnt sich nach rechts zu verstellen."
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B347a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B347a",
+        "dist": "10",
+        "nxt": "B347b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦40)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B347b↦30↦signal_without_train_protect),(B347b↦30↦undef_point)}",
+        "ENV_object_front": "{(lok↦{(B347a↦70)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "ENV_EndMovePoint",
+      "params": {
+        "Block": "B347a",
+        "N1": "B347b",
+        "N2": "B855a"
+      },
+      "results": {},
+      "destState": {
+        "ENV_next": "{(B347a↦B855a),(B347b↦B347c),(B855a↦B855b)}",
+        "ENV_stop_distances_front": "{(B855a↦30↦signal_without_train_protect),(B855b↦207↦human),(B855b↦209↦wagon)}",
+        "ENV_stop_positions_front": "{(B347b↦0↦signal_without_train_protect),(B855a↦0↦signal_without_train_protect),(B855b↦77↦human),(B855b↦79↦wagon)}",
+        "ENV_point_states": "{(B347a↦(B347b↦B855a)↦Wn2)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_object_back",
+        "ENV_safety_critical",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "ENV_object_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Weiche ist nach rechts verstellt."
+    },
+    {
+      "name": "VIS_DetectCorrectPointPosition_Front",
+      "params": {
+        "B2": "B347b",
+        "B3": "B855a",
+        "st": "Wn2",
+        "B1": "B347a"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_points_front": "{(B347a↦(B347b↦B855a)↦Wn2)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_stop_distances_front",
+        "ENV_occ",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_object_back",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "ENV_object_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Weiche wird erkannt."
+    },
+    {
+      "name": "ENV_SwitchSignalToSh1",
+      "params": {
+        "B1": "B347a",
+        "B2": "B855a"
+      },
+      "results": {},
+      "destState": {
+        "ENV_stop_distances_front": "{(B855b↦207↦human),(B855b↦209↦wagon)}",
+        "ENV_stop_positions_front": "{(B855b↦77↦human),(B855b↦79↦wagon)}",
+        "ENV_signal_states": "{(B347a↦B347b↦Sh0),(B347a↦B855a↦Sh1),(B347b↦B347c↦Wn7),(B347c↦B347b↦Wn7),(B855a↦B855b↦Wn7),(B855b↦B855a↦Wn7)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "VIS_detected_stops_front",
+        "ENV_object_back",
+        "ENV_safety_critical",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "ENV_object_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Signal wird auf Sh1 gesetzt."
+    },
+    {
+      "name": "VIS_DetectCorrectSignal_Front",
+      "params": {
+        "B2": "B855a",
+        "B1": "B347a"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_sig_front": "{(B347a↦B855a↦Sh1)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_stop_distances_front",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_object_back",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "ENV_object_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Signal wird erkannt."
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B347a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B347a",
+        "dist": "10",
+        "nxt": "B855a"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦50)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦197↦human),(B855b↦199↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B347a↦80)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B347a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B347a",
+        "dist": "10",
+        "nxt": "B855a"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦60)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦187↦human),(B855b↦189↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B347a↦90)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B347a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855a"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦70)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦177↦human),(B855b↦179↦wagon)}",
+        "VIS_detected_sig_front": "∅",
+        "ENV_object_front": "{(lok↦{(B855a↦0)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "ENV_occ": "{(lok↦B347a),(lok↦B855a),(C55↦B855b),(Person↦B855b)}",
+        "VIS_detected_points_front": "∅",
+        "ENV_signal_states": "{(B347a↦B347b↦Sh0),(B347a↦B855a↦Sh0),(B347b↦B347c↦Wn7),(B347c↦B347b↦Wn7),(B855a↦B855b↦Wn7),(B855b↦B855a↦Wn7)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦80)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦167↦human),(B855b↦169↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦10)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B347a",
+        "back": "B347a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B347a↦90)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦157↦human),(B855b↦159↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦20)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Zug passiert Sperrsignal und Weiche in Richtung der Gleissperre."
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B347a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B855a↦0)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦147↦human),(B855b↦149↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦30)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "ENV_occ": "{(lok↦B855a),(C55↦B855b),(Person↦B855b)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B855a↦10)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦137↦human),(B855b↦139↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦40)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B855a↦20)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦127↦human),(B855b↦129↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦50)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B855a↦30)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦117↦human),(B855b↦119↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦60)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B855a↦40)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦107↦human),(B855b↦109↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦70)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B855a↦50)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦97↦human),(B855b↦99↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦80)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "10",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "ENV_object_back": "{(lok↦{(B855a↦60)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦87↦human),(B855b↦89↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦90)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "ENV_ActivateDerailer",
+      "params": {
+        "B2": "B855b",
+        "B1": "B855a"
+      },
+      "results": {},
+      "destState": {
+        "ENV_active_derailers": "{(B855a↦B855b)}",
+        "ENV_stop_distances_front": "{(B855b↦10↦derailer),(B855b↦87↦human),(B855b↦89↦wagon)}",
+        "ENV_stop_positions_front": "{(B855b↦0↦derailer),(B855b↦77↦human),(B855b↦79↦wagon)}",
+        "ENV_stop_positions_back": "{(B347a↦99↦undef_point),(B855a↦99↦derailer)}",
+        "ENV_signal_states": "{(B347a↦B347b↦Sh0),(B347a↦B855a↦Sh0),(B347b↦B347c↦Wn7),(B347c↦B347b↦Wn7),(B855a↦B855b↦Sh0),(B855b↦B855a↦Sh0)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "VIS_detected_stops_front",
+        "ENV_object_back",
+        "ENV_safety_critical",
+        "ENV_brakes_forced_front",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "ENV_object_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Gleissperre wird aktiviert."
+    },
+    {
+      "name": "VIS_DetectCorrectSignal_Front",
+      "params": {
+        "B2": "B855b",
+        "B1": "B855a"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦10↦signal_without_train_protect)}",
+        "VIS_detected_sig_front": "{(B855a↦B855b↦Sh0)}"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_stop_distances_front",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_object_back",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "ENV_object_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Gleissperre wird erkannt."
+    },
+    {
+      "name": "CTR_SetAllowFront",
+      "params": {},
+      "results": {},
+      "destState": {
+        "CTR_allow_forw": "10"
+      },
+      "destStateNotChanged": [
+        "ENV_object_front",
+        "ENV_stop_distances_front",
+        "ENV_brake_shoes",
+        "ENV_active_derailers",
+        "ENV_object_back",
+        "VIS_detected_sig_back",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_brakes_forced_back",
+        "CTR_allow_back",
+        "ENV_derailed",
+        "VIS_detected_obj_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_distances_back",
+        "ENV_next",
+        "VIS_detected_stops_front",
+        "VIS_detected_stops_back",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "VIS_detected_track",
+        "ENV_point_states",
+        "ENV_brakes_forced_front",
+        "VIS_detected_sig_front"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦9↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦61)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦9↦derailer),(B855b↦86↦human),(B855b↦88↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦91)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "9"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦8↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦62)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦8↦derailer),(B855b↦85↦human),(B855b↦87↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦92)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "8"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦7↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦63)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦7↦derailer),(B855b↦84↦human),(B855b↦86↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦93)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "7"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦6↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦64)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦6↦derailer),(B855b↦83↦human),(B855b↦85↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦94)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "6"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦5↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦65)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦5↦derailer),(B855b↦82↦human),(B855b↦84↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦95)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "5"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦4↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦66)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦4↦derailer),(B855b↦81↦human),(B855b↦83↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦96)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "4"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦3↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦67)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦3↦derailer),(B855b↦80↦human),(B855b↦82↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦97)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "3"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦2↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦68)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦2↦derailer),(B855b↦79↦human),(B855b↦81↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦98)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "2"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": ""
+    },
+    {
+      "name": "RF_MoveLokForwards",
+      "params": {
+        "frnt": "B855a",
+        "new_back": "B855a",
+        "back": "B855a",
+        "new_front": "B855a",
+        "dist": "1",
+        "nxt": "B855b"
+      },
+      "results": {},
+      "destState": {
+        "VIS_detected_stops_front": "{(B855b↦1↦signal_without_train_protect)}",
+        "ENV_object_back": "{(lok↦{(B855a↦69)}),(C55↦{(B855b↦79)}),(Person↦{(B855b↦77)})}",
+        "ENV_stop_distances_front": "{(B855b↦1↦derailer),(B855b↦78↦human),(B855b↦80↦wagon)}",
+        "ENV_object_front": "{(lok↦{(B855a↦99)}),(C55↦{(B855b↦99)}),(Person↦{(B855b↦78)})}",
+        "CTR_allow_forw": "1"
+      },
+      "destStateNotChanged": [
+        "VIS_detected_stops_back",
+        "ENV_next",
+        "CTR_allow_back",
+        "ENV_stop_distances_back",
+        "ENV_active_derailers",
+        "ENV_derailed",
+        "ENV_occ",
+        "VIS_detected_points_front",
+        "ENV_signal_states",
+        "ENV_safety_critical",
+        "ENV_stop_positions_front",
+        "ENV_brakes_forced_front",
+        "ENV_stop_positions_back",
+        "ENV_brake_shoes",
+        "VIS_detected_obj_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_sig_back",
+        "ENV_brakes_forced_back",
+        "ENV_point_states"
+      ],
+      "preds": [],
+      "postconditions": [],
+      "description": "Zug hält vor der Gleissperre."
+    }
+  ],
+  "variableNames": [
+    "ENV_active_derailers",
+    "CTR_allow_back",
+    "CTR_allow_forw",
+    "ENV_brake_shoes",
+    "ENV_brakes_forced_back",
+    "ENV_brakes_forced_front",
+    "ENV_derailed",
+    "VIS_detected_obj_front",
+    "VIS_detected_points_front",
+    "VIS_detected_sig_back",
+    "VIS_detected_sig_front",
+    "VIS_detected_stops_back",
+    "VIS_detected_stops_front",
+    "ENV_next",
+    "ENV_object_back",
+    "ENV_object_front",
+    "ENV_occ",
+    "ENV_point_states",
+    "ENV_safety_critical",
+    "ENV_signal_states",
+    "ENV_stop_distances_back",
+    "ENV_stop_distances_front",
+    "ENV_stop_positions_back",
+    "ENV_stop_positions_front"
+  ],
+  "constantNames": [
+    "ENV_TRK",
+    "ENV_DERAILERS",
+    "ENV_SIGNALS",
+    "ENV_POINTS",
+    "ENV_next_init",
+    "ENV_occ_init",
+    "ENV_signals_init",
+    "ENV_points_init",
+    "ENV_block_length",
+    "ENV_object_length",
+    "ENV_object_front_init",
+    "ENV_object_back_init",
+    "ENV_object_type",
+    "ENV_stop_distances_front_init",
+    "ENV_stop_positions_front_init",
+    "ENV_stop_distances_back_init",
+    "ENV_stop_positions_back_init",
+    "VIS_max_detect_dist"
+  ],
+  "setNames": [
+    "ENV_BLOCKS",
+    "ENV_OBJECTS",
+    "ENV_SIGNAL_STATES",
+    "ENV_point_states",
+    "ENV_STOP_REASONS"
+  ],
+  "machineOperationInfos": {
+    "RF_MoveLokForwards": {
+      "operationName": "RF_MoveLokForwards",
+      "parameterNames": [
+        "frnt",
+        "nxt",
+        "back",
+        "new_front",
+        "new_back",
+        "dist"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_DERAILERS",
+        "ENV_SIGNALS",
+        "ENV_TRK",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_block_length",
+        "ENV_brakes_forced_back",
+        "ENV_brakes_forced_front",
+        "ENV_derailed",
+        "VIS_detected_points_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_stops_back",
+        "VIS_detected_stops_front",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_object_type",
+        "ENV_occ",
+        "ENV_safety_critical",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front"
+      ],
+      "writtenVariables": [
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_brakes_forced_back",
+        "ENV_brakes_forced_front",
+        "ENV_derailed",
+        "VIS_detected_points_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_stops_back",
+        "VIS_detected_stops_front",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_occ",
+        "ENV_safety_critical",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_brakes_forced_back",
+        "ENV_brakes_forced_front",
+        "ENV_derailed",
+        "VIS_detected_points_front",
+        "VIS_detected_sig_front",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_occ",
+        "ENV_safety_critical",
+        "ENV_signal_states"
+      ],
+      "typeMap": {
+        "frnt": "global('ENV_BLOCKS')",
+        "'ENV_SIGNALS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "new_back": "global('ENV_BLOCKS')",
+        "back": "global('ENV_BLOCKS')",
+        "dist": "integer",
+        "new_front": "global('ENV_BLOCKS')",
+        "'ENV_DERAILERS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "nxt": "global('ENV_BLOCKS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "RF_MoveLokBackwards": {
+      "operationName": "RF_MoveLokBackwards",
+      "parameterNames": [
+        "frnt",
+        "prev",
+        "back",
+        "new_front",
+        "new_back",
+        "dist"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_DERAILERS",
+        "ENV_POINTS",
+        "ENV_SIGNALS",
+        "ENV_TRK",
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_block_length",
+        "ENV_brakes_forced_back",
+        "ENV_brakes_forced_front",
+        "ENV_derailed",
+        "VIS_detected_sig_back",
+        "VIS_detected_stops_back",
+        "VIS_detected_stops_front",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_object_type",
+        "ENV_occ",
+        "ENV_safety_critical",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front"
+      ],
+      "writtenVariables": [
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_brakes_forced_back",
+        "ENV_brakes_forced_front",
+        "ENV_derailed",
+        "VIS_detected_sig_back",
+        "VIS_detected_stops_back",
+        "VIS_detected_stops_front",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_occ",
+        "ENV_safety_critical",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_back",
+        "CTR_allow_forw",
+        "ENV_brakes_forced_back",
+        "ENV_brakes_forced_front",
+        "ENV_derailed",
+        "VIS_detected_sig_back",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_occ",
+        "ENV_safety_critical",
+        "ENV_signal_states"
+      ],
+      "typeMap": {
+        "frnt": "global('ENV_BLOCKS')",
+        "'ENV_SIGNALS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'ENV_POINTS'": "set(couple(global('ENV_BLOCKS'),couple(global('ENV_BLOCKS'),global('ENV_BLOCKS'))))",
+        "new_back": "global('ENV_BLOCKS')",
+        "prev": "global('ENV_BLOCKS')",
+        "back": "global('ENV_BLOCKS')",
+        "dist": "integer",
+        "new_front": "global('ENV_BLOCKS')",
+        "'ENV_DERAILERS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "VIS_DetectDisappearedStopReason_Front": {
+      "operationName": "VIS_DetectDisappearedStopReason_Front",
+      "parameterNames": [
+        "reason"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_stops_front",
+        "VIS_max_detect_dist",
+        "ENV_stop_distances_front"
+      ],
+      "writtenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_stops_front"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_stops_front"
+      ],
+      "typeMap": {
+        "reason": "global('ENV_STOP_REASONS')"
+      }
+    },
+    "ENV_SwitchSignalToSh0": {
+      "operationName": "ENV_SwitchSignalToSh0",
+      "parameterNames": [
+        "frnt",
+        "nxt"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_DERAILERS",
+        "ENV_SIGNALS",
+        "ENV_TRK",
+        "ENV_block_length",
+        "ENV_next",
+        "ENV_object_front",
+        "ENV_signal_states",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "writtenVariables": [
+        "ENV_signal_states",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "nonDetWrittenVariables": [
+        "ENV_signal_states",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "typeMap": {
+        "frnt": "global('ENV_BLOCKS')",
+        "'ENV_SIGNALS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'ENV_DERAILERS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "nxt": "global('ENV_BLOCKS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "ENV_SwitchSignalToSh1": {
+      "operationName": "ENV_SwitchSignalToSh1",
+      "parameterNames": [
+        "frnt",
+        "nxt"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_DERAILERS",
+        "ENV_SIGNALS",
+        "ENV_TRK",
+        "ENV_block_length",
+        "ENV_next",
+        "ENV_object_front",
+        "ENV_occ",
+        "ENV_point_states",
+        "ENV_signal_states",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "writtenVariables": [
+        "ENV_signal_states",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "nonDetWrittenVariables": [
+        "ENV_signal_states",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "typeMap": {
+        "frnt": "global('ENV_BLOCKS')",
+        "'ENV_SIGNALS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'ENV_DERAILERS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "nxt": "global('ENV_BLOCKS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "VIS_DetectCorrectSignal_Back": {
+      "operationName": "VIS_DetectCorrectSignal_Back",
+      "parameterNames": [
+        "B1",
+        "B2"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_SIGNALS",
+        "ENV_TRK",
+        "CTR_allow_back",
+        "ENV_block_length",
+        "ENV_derailed",
+        "VIS_detected_sig_back",
+        "VIS_detected_stops_back",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_back",
+        "ENV_signal_states"
+      ],
+      "writtenVariables": [
+        "CTR_allow_back",
+        "VIS_detected_sig_back",
+        "VIS_detected_stops_back"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_back",
+        "VIS_detected_sig_back",
+        "VIS_detected_stops_back"
+      ],
+      "typeMap": {
+        "'B2'": "global('ENV_BLOCKS')",
+        "'B1'": "global('ENV_BLOCKS')",
+        "'ENV_SIGNALS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "ENV_EndMovePoint": {
+      "operationName": "ENV_EndMovePoint",
+      "parameterNames": [
+        "Block",
+        "N1",
+        "N2"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_POINTS",
+        "ENV_TRK",
+        "ENV_block_length",
+        "ENV_next",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_occ",
+        "ENV_point_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "writtenVariables": [
+        "ENV_next",
+        "ENV_point_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "nonDetWrittenVariables": [
+        "ENV_next",
+        "ENV_point_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "typeMap": {
+        "'ENV_POINTS'": "set(couple(global('ENV_BLOCKS'),couple(global('ENV_BLOCKS'),global('ENV_BLOCKS'))))",
+        "'Block'": "global('ENV_BLOCKS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'N2'": "global('ENV_BLOCKS')",
+        "'N1'": "global('ENV_BLOCKS')"
+      }
+    },
+    "VIS_DetectWrongSignal_Back": {
+      "operationName": "VIS_DetectWrongSignal_Back",
+      "parameterNames": [
+        "B",
+        "st",
+        "dist"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "CTR_allow_back",
+        "ENV_derailed",
+        "VIS_detected_stops_back",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_back"
+      ],
+      "writtenVariables": [
+        "CTR_allow_back",
+        "VIS_detected_stops_back"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_back",
+        "VIS_detected_stops_back"
+      ],
+      "typeMap": {
+        "st": "global('ENV_SIGNAL_STATES')",
+        "dist": "integer",
+        "'B'": "global('ENV_BLOCKS')"
+      }
+    },
+    "ENV_RemoveBrakeShoe_Front": {
+      "operationName": "ENV_RemoveBrakeShoe_Front",
+      "parameterNames": [
+        "B",
+        "pos"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_TRK",
+        "ENV_block_length",
+        "ENV_brake_shoes",
+        "ENV_brakes_forced_front",
+        "ENV_object_front",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "writtenVariables": [
+        "ENV_brake_shoes",
+        "ENV_brakes_forced_front",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "nonDetWrittenVariables": [
+        "ENV_brake_shoes",
+        "ENV_brakes_forced_front",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "typeMap": {
+        "pos": "integer",
+        "'B'": "global('ENV_BLOCKS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "ENV_DeactivateDerailer": {
+      "operationName": "ENV_DeactivateDerailer",
+      "parameterNames": [
+        "B1",
+        "B2"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_TRK",
+        "ENV_active_derailers",
+        "ENV_block_length",
+        "ENV_next",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "writtenVariables": [
+        "ENV_active_derailers",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "nonDetWrittenVariables": [
+        "ENV_active_derailers",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "typeMap": {
+        "'B2'": "global('ENV_BLOCKS')",
+        "'B1'": "global('ENV_BLOCKS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "VIS_DetectCorrectSignal_Front": {
+      "operationName": "VIS_DetectCorrectSignal_Front",
+      "parameterNames": [
+        "B1",
+        "B2"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_SIGNALS",
+        "ENV_TRK",
+        "CTR_allow_forw",
+        "ENV_block_length",
+        "ENV_derailed",
+        "VIS_detected_sig_front",
+        "VIS_detected_stops_front",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_front",
+        "ENV_safety_critical",
+        "ENV_signal_states",
+        "ENV_stop_distances_front"
+      ],
+      "writtenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_sig_front",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_distances_front"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_sig_front",
+        "VIS_detected_stops_front",
+        "ENV_safety_critical",
+        "ENV_stop_distances_front"
+      ],
+      "typeMap": {
+        "'B2'": "global('ENV_BLOCKS')",
+        "'B1'": "global('ENV_BLOCKS')",
+        "'ENV_SIGNALS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "ENV_ActivateDerailer": {
+      "operationName": "ENV_ActivateDerailer",
+      "parameterNames": [
+        "B1",
+        "B2"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_DERAILERS",
+        "ENV_TRK",
+        "ENV_active_derailers",
+        "ENV_block_length",
+        "ENV_next",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_occ",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "writtenVariables": [
+        "ENV_active_derailers",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "nonDetWrittenVariables": [
+        "ENV_active_derailers",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "typeMap": {
+        "'B2'": "global('ENV_BLOCKS')",
+        "'B1'": "global('ENV_BLOCKS')",
+        "'ENV_DERAILERS'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "VIS_DetectCorrectPointPosition_Front": {
+      "operationName": "VIS_DetectCorrectPointPosition_Front",
+      "parameterNames": [
+        "B1",
+        "B2",
+        "B3",
+        "st"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_POINTS",
+        "ENV_TRK",
+        "CTR_allow_forw",
+        "ENV_block_length",
+        "ENV_derailed",
+        "VIS_detected_points_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_stops_front",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_front",
+        "ENV_point_states"
+      ],
+      "writtenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_points_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_stops_front"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_points_front",
+        "VIS_detected_sig_front",
+        "VIS_detected_stops_front"
+      ],
+      "typeMap": {
+        "st": "global('ENV_point_states')",
+        "'B2'": "global('ENV_BLOCKS')",
+        "'B1'": "global('ENV_BLOCKS')",
+        "'ENV_POINTS'": "set(couple(global('ENV_BLOCKS'),couple(global('ENV_BLOCKS'),global('ENV_BLOCKS'))))",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'B3'": "global('ENV_BLOCKS')"
+      }
+    },
+    "ENV_PlaceBrakeShoe_Front": {
+      "operationName": "ENV_PlaceBrakeShoe_Front",
+      "parameterNames": [
+        "B",
+        "pos"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_TRK",
+        "ENV_block_length",
+        "ENV_brake_shoes",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "writtenVariables": [
+        "ENV_brake_shoes",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "nonDetWrittenVariables": [
+        "ENV_brake_shoes",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_front"
+      ],
+      "typeMap": {
+        "pos": "integer",
+        "'B'": "global('ENV_BLOCKS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "VIS_DetectWrongSignal_Front": {
+      "operationName": "VIS_DetectWrongSignal_Front",
+      "parameterNames": [
+        "B",
+        "st",
+        "dist"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "CTR_allow_forw",
+        "ENV_block_length",
+        "ENV_derailed",
+        "VIS_detected_stops_front",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_front"
+      ],
+      "writtenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_stops_front"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_stops_front"
+      ],
+      "typeMap": {
+        "st": "global('ENV_SIGNAL_STATES')",
+        "dist": "integer",
+        "'B'": "global('ENV_BLOCKS')"
+      }
+    },
+    "VIS_DetectCorrectObject_Front": {
+      "operationName": "VIS_DetectCorrectObject_Front",
+      "parameterNames": [
+        "reason"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_TRK",
+        "CTR_allow_forw",
+        "ENV_block_length",
+        "ENV_derailed",
+        "VIS_detected_obj_front",
+        "VIS_detected_stops_front",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_object_type",
+        "ENV_occ",
+        "ENV_stop_distances_front"
+      ],
+      "writtenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_obj_front",
+        "VIS_detected_stops_front"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_obj_front",
+        "VIS_detected_stops_front"
+      ],
+      "typeMap": {
+        "reason": "global('ENV_STOP_REASONS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))"
+      }
+    },
+    "ENV_StartMovePoint": {
+      "operationName": "ENV_StartMovePoint",
+      "parameterNames": [
+        "Block",
+        "N1",
+        "N2"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "ENV_POINTS",
+        "ENV_TRK",
+        "ENV_block_length",
+        "ENV_next",
+        "ENV_object_back",
+        "ENV_object_front",
+        "ENV_occ",
+        "ENV_point_states",
+        "ENV_signal_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "writtenVariables": [
+        "ENV_point_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "nonDetWrittenVariables": [
+        "ENV_point_states",
+        "ENV_stop_distances_back",
+        "ENV_stop_distances_front",
+        "ENV_stop_positions_back",
+        "ENV_stop_positions_front"
+      ],
+      "typeMap": {
+        "'ENV_POINTS'": "set(couple(global('ENV_BLOCKS'),couple(global('ENV_BLOCKS'),global('ENV_BLOCKS'))))",
+        "'Block'": "global('ENV_BLOCKS')",
+        "'ENV_TRK'": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+        "'N2'": "global('ENV_BLOCKS')",
+        "'N1'": "global('ENV_BLOCKS')"
+      }
+    },
+    "VIS_DetectWrongPointPosition_Front": {
+      "operationName": "VIS_DetectWrongPointPosition_Front",
+      "parameterNames": [
+        "B",
+        "st",
+        "dist"
+      ],
+      "outputParameterNames": [],
+      "topLevel": true,
+      "type": "CLASSICAL_B",
+      "readVariables": [
+        "CTR_allow_forw",
+        "ENV_block_length",
+        "ENV_derailed",
+        "VIS_detected_stops_front",
+        "VIS_max_detect_dist",
+        "ENV_next",
+        "ENV_object_front"
+      ],
+      "writtenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_stops_front"
+      ],
+      "nonDetWrittenVariables": [
+        "CTR_allow_forw",
+        "VIS_detected_stops_front"
+      ],
+      "typeMap": {
+        "st": "global('ENV_point_states')",
+        "dist": "integer",
+        "'B'": "global('ENV_BLOCKS')"
+      }
+    }
+  },
+  "globalIdentifierTypes": {
+    "ENV_next": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+    "CTR_allow_forw": "integer",
+    "ENV_stop_distances_front": "set(couple(couple(global('ENV_BLOCKS'),integer),global('ENV_STOP_REASONS')))",
+    "ENV_occ": "set(couple(global('ENV_OBJECTS'),global('ENV_BLOCKS')))",
+    "ENV_signal_states": "set(couple(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')),global('ENV_SIGNAL_STATES')))",
+    "VIS_detected_stops_front": "set(couple(couple(global('ENV_BLOCKS'),integer),global('ENV_STOP_REASONS')))",
+    "ENV_safety_critical": "boolean",
+    "ENV_stop_positions_front": "set(couple(couple(global('ENV_BLOCKS'),integer),global('ENV_STOP_REASONS')))",
+    "ENV_brakes_forced_front": "boolean",
+    "ENV_brake_shoes": "set(couple(global('ENV_BLOCKS'),integer))",
+    "VIS_detected_sig_front": "set(couple(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')),global('ENV_SIGNAL_STATES')))",
+    "ENV_brakes_forced_back": "boolean",
+    "VIS_detected_stops_back": "set(couple(couple(global('ENV_BLOCKS'),integer),global('ENV_STOP_REASONS')))",
+    "CTR_allow_back": "integer",
+    "ENV_object_type": "set(couple(global('ENV_OBJECTS'),global('ENV_STOP_REASONS')))",
+    "ENV_stop_distances_back": "set(couple(couple(global('ENV_BLOCKS'),integer),global('ENV_STOP_REASONS')))",
+    "ENV_active_derailers": "set(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')))",
+    "ENV_derailed": "set(couple(global('ENV_OBJECTS'),boolean))",
+    "VIS_detected_points_front": "set(couple(couple(global('ENV_BLOCKS'),couple(global('ENV_BLOCKS'),global('ENV_BLOCKS'))),global('ENV_point_states')))",
+    "ENV_object_back": "set(couple(global('ENV_OBJECTS'),set(couple(global('ENV_BLOCKS'),integer))))",
+    "ENV_stop_positions_back": "set(couple(couple(global('ENV_BLOCKS'),integer),global('ENV_STOP_REASONS')))",
+    "VIS_detected_obj_front": "set(global('ENV_OBJECTS'))",
+    "ENV_object_front": "set(couple(global('ENV_OBJECTS'),set(couple(global('ENV_BLOCKS'),integer))))",
+    "VIS_detected_sig_back": "set(couple(couple(global('ENV_BLOCKS'),global('ENV_BLOCKS')),global('ENV_SIGNAL_STATES')))",
+    "VIS_max_detect_dist": "integer",
+    "ENV_point_states": "set(couple(couple(global('ENV_BLOCKS'),couple(global('ENV_BLOCKS'),global('ENV_BLOCKS'))),global('ENV_point_states')))",
+    "ENV_block_length": "set(couple(global('ENV_BLOCKS'),integer))"
+  },
+  "metadata": {
+    "fileType": "Trace",
+    "formatVersion": 5,
+    "savedAt": "2022-10-29T13:57:57.692472300Z",
+    "creator": "traceReplay",
+    "proB2KernelVersion": "4.0.0-SNAPSHOT",
+    "proBCliVersion": "1.12.0-nightly",
+    "modelName": "Rangierfahrt_KI_1_1"
+  }
+}
