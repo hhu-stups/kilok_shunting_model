@@ -12,19 +12,19 @@
         {
             "id": "ENV_SwitchSignalToSh1_Init",
             "execute": "ENV_SwitchSignalToSh1",
-            "after": "random_element(1..4000)",
+            "after": "random_element(1..8000)",
             "activating" : ["ENV_SwitchSignalToSh0", "VIS_DetectSignal", "VIS_DetectPointPositioning"]
         },
         {
             "id": "ENV_SwitchSignalToSh1",
             "execute": "ENV_SwitchSignalToSh1",
-            "after": 4000,
+            "after": 8000,
             "activating" : ["ENV_SwitchSignalToSh0", "VIS_DetectSignal", "VIS_DetectPointPositioning"]
         },
         {
             "id": "ENV_SwitchSignalToSh1AfterEntering",
             "execute": "ENV_SwitchSignalToSh1",
-            "after": 5000,
+            "after": 10000,
             "activating" : ["ENV_SwitchSignalToSh0"]
         },
         {
@@ -38,13 +38,13 @@
         {
             "id": "ENV_SwitchSignalToSh0AndChangePoint",
             "execute": "ENV_SwitchSignalToSh0",
-            "after": 4000,
+            "after": 8000,
             "activating" : ["ENV_SwitchSignalToSh1", "ENV_StartMovePoint"]
         },
         {
             "id": "ENV_SwitchSignalToSh0Only",
             "execute": "ENV_SwitchSignalToSh0",
-            "after": 4000,
+            "after": 8000,
             "activating" : "ENV_SwitchSignalToSh1"
         },
         {
@@ -62,7 +62,7 @@
         {
             "id": "ENV_ActivateDerailer",
             "execute": "ENV_ActivateDerailer",
-            "after": 5000,
+            "after": 10000,
             "fixedVariables": {
                 "B1": "B855a",
                 "B2": "B855b"
@@ -72,7 +72,7 @@
         {
             "id": "ENV_ActivateDerailer_Init",
             "execute": "ENV_ActivateDerailer",
-            "after": "random_element(1..5000)",
+            "after": "random_element(1..10000)",
             "fixedVariables": {
                 "B1": "B855a",
                 "B2": "B855b"
@@ -82,7 +82,7 @@
         {
             "id": "ENV_DeactivateDerailer",
             "execute": "ENV_DeactivateDerailer",
-            "after": 5000,
+            "after": 10000,
             "fixedVariables": {
                 "B1": "B855a",
                 "B2": "B855b"
@@ -90,24 +90,27 @@
             "activating" : ["ENV_ActivateDerailer", "VIS_DetectDerailer"]
         },
         {
-            "id": "RF_MoveLokForwards",
-            "execute": "RF_MoveLokForwards",
-            "fixedVariables": {
-                "dist": "min({1, CTR_allow_forw-1})"
-            },
-            "after": "min({1, CTR_allow_forw-1})*100",
-            "activationKind": "single:max",
-            "additionalGuards": "B347a /: dom(ENV_object_front(lok)) or (ENV_object_front(lok)(B347a) >= 90 => B347a |-> B855a |-> Sh1 : VIS_detected_sig_front)",
-            "activating" : ["RF_MoveLokForwards", "ENV_SwitchSignalToSh1AfterEntering", "VIS_DetectSignal",
-                "VIS_DetectPointPositioning", "VIS_DetectDerailer", "VIS_DetectPerson", "VIS_DetectC55"]
+            "id": "VIS_DetectPointPositioning",
+            "chooseActivation":
+            {
+                "VIS_DetectCorrectPointPosition_Front": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.549, 3 |-> 0.349, 4 |-> 0.199, 5 |-> 0.099, 6 |-> 0.049}(dist_front(B347a, B855a, 0)/10) ELSE 0.0 END",
+                "VIS_DetectWrongPointPosition_Front": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN 0.1 * (1.0 - {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.549, 3 |-> 0.349, 4 |-> 0.199, 5 |-> 0.099, 6 |-> 0.049}(dist_front(B347a, B855a, 0)/10)) ELSE 0.0 END",
+                "skip": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN 0.9 * (1.0 - {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.549, 3 |-> 0.349, 4 |-> 0.199, 5 |-> 0.099, 6 |-> 0.049}(dist_front(B347a, B855a, 0)/10)) ELSE 1.0 END"
+            }
+        },
+        {
+            "id": "VIS_DetectCorrectPointPosition_Front",
+            "execute": "VIS_DetectCorrectPointPosition_Front",
+            "after": 100,
+            "activating": "CTR_SetAllowFront"
         },
         {
             "id": "VIS_DetectSignal",
             "chooseActivation":
             {
-                "VIS_DetectCorrectSignal_Front": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B347a, B855a, 0)/10) ELSE 0.0 END",
-                "VIS_DetectWrongSignal_Front": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN 0.1 * (1.0 - {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B347a, B855a, 0)/10)) ELSE 0.0 END",
-                "skip": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN 0.9 * (1.0 - {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B347a, B855a, 0)/10)) ELSE 1.0 END"
+                "VIS_DetectCorrectSignal_Front": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B347a, B855a, 0)/10) ELSE 0.0 END",
+                "VIS_DetectWrongSignal_Front": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN 0.1 * (1.0 - {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B347a, B855a, 0)/10)) ELSE 0.0 END",
+                "skip": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN 0.9 * (1.0 - {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B347a, B855a, 0)/10)) ELSE 1.0 END"
             }
         },
         {
@@ -120,27 +123,12 @@
             "activating": "CTR_SetAllowFront"
         },
         {
-            "id": "VIS_DetectPointPositioning",
-            "chooseActivation":
-            {
-                "VIS_DetectCorrectPointPosition_Front": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN {0 |-> 0.999, 1 |-> 0.749, 2 |-> 0.549, 3 |-> 0.349, 4 |-> 0.199, 5 |-> 0.099, 6 |-> 0.049}(dist_front(B347a, B855a, 0)/10) ELSE 0.0 END",
-                "VIS_DetectWrongPointPosition_Front": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN 0.1 * (1.0 - {0 |-> 0.999, 1 |-> 0.749, 2 |-> 0.549, 3 |-> 0.349, 4 |-> 0.199, 5 |-> 0.099, 6 |-> 0.049}(dist_front(B347a, B855a, 0)/10)) ELSE 0.0 END",
-                "skip": "IF B347a : dom(ENV_object_front(lok)) & dist_front(B347a, B855a, 0)/10 < 7 THEN 0.9 * (1.0 - {0 |-> 0.999, 1 |-> 0.749, 2 |-> 0.549, 3 |-> 0.349, 4 |-> 0.199, 5 |-> 0.099, 6 |-> 0.049}(dist_front(B347a, B855a, 0)/10)) ELSE 1.0 END"
-            }
-        },
-        {
-            "id": "VIS_DetectCorrectPointPosition_Front",
-            "execute": "VIS_DetectCorrectPointPosition_Front",
-            "after": 100,
-            "activating": "CTR_SetAllowFront"
-        },
-        {
             "id": "VIS_DetectDerailer",
             "chooseActivation":
             {
-                "VIS_DetectCorrectDerailer_Front": "IF B855a : dom(ENV_object_front(lok)) & dist_front(B855a, B855b, 0)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B855a, B855b, 0)/10) ELSE 0.0 END",
-                "VIS_DetectWrongDerailer_Front": "IF B855a : dom(ENV_object_front(lok)) & dist_front(B855a, B855b, 0)/10 < 10 THEN 0.1 * (1.0 - {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B855a, B855b, 0)/10)) ELSE 0.0 END",
-                "skip": "IF B855a : dom(ENV_object_front(lok)) & dist_front(B855a, B855b, 0)/10 < 10 THEN 0.9 * (1.0 - {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B855a, B855b, 0)/10)) ELSE 1.0 END"
+                "VIS_DetectCorrectDerailer_Front": "IF B855a : dom(ENV_object_front(lok)) & dist_front(B855a, B855b, 0)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B855a, B855b, 0)/10) ELSE 0.0 END",
+                "VIS_DetectWrongDerailer_Front": "IF B855a : dom(ENV_object_front(lok)) & dist_front(B855a, B855b, 0)/10 < 10 THEN 0.1 * (1.0 - {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B855a, B855b, 0)/10)) ELSE 0.0 END",
+                "skip": "IF B855a : dom(ENV_object_front(lok)) & dist_front(B855a, B855b, 0)/10 < 10 THEN 0.9 * (1.0 - {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.199, 7 |-> 0.149, 8 |-> 0.099, 9 |-> 0.049}(dist_front(B855a, B855b, 0)/10)) ELSE 1.0 END"
             }
         },
         {
@@ -156,8 +144,8 @@
             "id": "VIS_DetectPerson",
             "chooseActivation":
             {
-                "VIS_DetectCorrectPerson": "IF human : dom(ENV_stop_distances_front~) & ENV_stop_distances_front~[{human}](B855b)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.249, 7 |-> 0.199, 8 |-> 0.149, 9 |-> 0.099, 10 |-> 0.049}(ENV_stop_distances_front~[{human}](B855b)/10) ELSE 0.0 END",
-                "skip": "1.0 - (IF human : dom(ENV_stop_distances_front~) & ENV_stop_distances_front~[{human}](B855b)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.249, 7 |-> 0.199, 8 |-> 0.149, 9 |-> 0.099, 10 |-> 0.049}(ENV_stop_distances_front~[{human}](B855b)/10) ELSE 0.0 END)"
+                "VIS_DetectCorrectPerson": "IF human : dom(ENV_stop_distances_front~) & ENV_stop_distances_front~[{human}](B855b)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.249, 7 |-> 0.199, 8 |-> 0.149, 9 |-> 0.099, 10 |-> 0.049}(ENV_stop_distances_front~[{human}](B855b)/10) ELSE 0.0 END",
+                "skip": "1.0 - (IF human : dom(ENV_stop_distances_front~) & ENV_stop_distances_front~[{human}](B855b)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.249, 7 |-> 0.199, 8 |-> 0.149, 9 |-> 0.099, 10 |-> 0.049}(ENV_stop_distances_front~[{human}](B855b)/10) ELSE 0.0 END)"
             }
         },
         {
@@ -173,8 +161,8 @@
             "id": "VIS_DetectC55",
             "chooseActivation":
             {
-                "VIS_DetectCorrectC55": "IF wagon : dom(ENV_stop_distances_front~) & ENV_stop_distances_front~[{wagon}](B855b)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.249, 7 |-> 0.199, 8 |-> 0.149, 9 |-> 0.099, 10 |-> 0.049}(ENV_stop_distances_front~[{wagon}](B855b)/10) ELSE 0.0 END",
-                "skip": "1.0 - (IF wagon : dom(ENV_stop_distances_front~) & ENV_stop_distances_front~[{wagon}](B855b)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.799, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.249, 7 |-> 0.199, 8 |-> 0.149, 9 |-> 0.099, 10 |-> 0.049}(ENV_stop_distances_front~[{wagon}](B855b)/10) ELSE 0.0 END)"
+                "VIS_DetectCorrectC55": "IF wagon : dom(ENV_stop_distances_front~) & ENV_stop_distances_front~[{wagon}](B855b)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.249, 7 |-> 0.199, 8 |-> 0.149, 9 |-> 0.099, 10 |-> 0.049}(ENV_stop_distances_front~[{wagon}](B855b)/10) ELSE 0.0 END",
+                "skip": "1.0 - (IF wagon : dom(ENV_stop_distances_front~) & ENV_stop_distances_front~[{wagon}](B855b)/10 < 10 THEN {0 |-> 0.999, 1 |-> 0.999, 2 |-> 0.649, 3 |-> 0.499, 4 |-> 0.399, 5 |-> 0.299, 6 |-> 0.249, 7 |-> 0.199, 8 |-> 0.149, 9 |-> 0.099, 10 |-> 0.049}(ENV_stop_distances_front~[{wagon}](B855b)/10) ELSE 0.0 END)"
             }
         },
         {
@@ -192,6 +180,18 @@
             "after": 100,
             "activating": "RF_MoveLokForwards",
             "activationKind": "single"
+        },
+        {
+            "id": "RF_MoveLokForwards",
+            "execute": "RF_MoveLokForwards",
+            "fixedVariables": {
+                "dist": "min({10, CTR_allow_forw-1})"
+            },
+            "after": "min({10, CTR_allow_forw-1})*100",
+            "activationKind": "single:max",
+            "additionalGuards": "B347a /: dom(ENV_object_front(lok)) or (ENV_object_front(lok)(B347a) >= 90 => B347a |-> B855a |-> Sh1 : VIS_detected_sig_front)",
+            "activating" : ["RF_MoveLokForwards", "ENV_SwitchSignalToSh1AfterEntering", "VIS_DetectSignal",
+                "VIS_DetectPointPositioning", "VIS_DetectDerailer", "VIS_DetectPerson", "VIS_DetectC55"]
         },
         {
             "id": "skip",
